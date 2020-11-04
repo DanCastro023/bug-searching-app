@@ -1,14 +1,14 @@
 :root {
   --color-primary: #7239cf;
-  --color-primary-light:#804ecf;
+  --color-primary-light: #804ecf;
   --color-primary-dark: #ba265d;
 
-  --color-hover:#7f35f7;
+  --color-hover: #7f35f7;
 
   --color-grey: #d9d9d9;
   --color-grey-light: #f4f2f2;
   --color-grey-dark: #777;
-  --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -25,11 +25,13 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px
+
+  @media only screen and (max-width: 68.75em) {
+    font-size: 50%;
+  }
 }
 
-
-
-.App{
+.App {
   min-width: 100vh;
 }
 

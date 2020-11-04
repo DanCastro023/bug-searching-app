@@ -1,3 +1,7 @@
+//TODO: Cambiar constantes sass a archivo de const
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+
 .card {
   font-size: 1.4rem;
   position: absolute;
@@ -13,12 +17,26 @@
 
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: $bp-medium) {
+    height: 90%;
+    width: 80%;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .search {
   flex: 0 0 15%;
   display: flex;
-  
+
+  @media only screen and (max-width: $bp-medium) {
+    flex: 0 0 8%;
+  }
+
   align-items: center;
   // justify-content: center;
 
@@ -40,63 +58,73 @@
     }
   }
 
-  &__button{
+
+  &__button {
     //flex: 0 0 10%;
     border: none;
     background-color: var(--color-grey-light);
     border: none;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 1000px;
+    transition: all .2s;
     &:focus {
       outline: none;
     }
     &:active {
       transform: translateY(2px);
     }
+
     //background-color: var(--color-primary);
   }
 
   &__icon {
-    height: 2rem;
-    width: 2rem;
-    fill:var(--color-primary);
+    height: 2.3rem;
+    width: 2.3rem;
+    fill: var(--color-primary);
   }
 }
 
 .list {
   flex: 0 0 85%;
+
+  @media only screen and (max-width: $bp-small) {
+    flex: 0 0 92%;
+  }
+
   list-style: none;
   overflow-y: auto;
   // border-bottom: 1px solid black;
 
-  &__item{
+  &__item {
     border: 1px solid #ccc;
     padding: 1rem;
-    
+
     &:hover,
-    &-selected
-    {
+    &-selected {
       background-color: #7f35f7;
       color: white;
     }
   }
 
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     width: 1rem;
   }
-  &::-webkit-scrollbar-thumb{
+  &::-webkit-scrollbar-thumb {
     background: linear-gradient(
       var(--color-primary-light),
       var(--color-primary-dark)
     );
-    border-radius: .6rem;
+    border-radius: 0.6rem;
   }
 }
 
-.loader{
+.loader {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  svg{
+  svg {
     position: relative;
     width: 15rem;
     height: 15rem;
@@ -117,24 +145,25 @@
   }
 }
 
-@keyframes loader{
-  0%,100%{
+@keyframes loader {
+  0%,
+  100% {
     stroke-dashoffset: 440;
   }
-  50%{
+  50% {
     stroke-dashoffset: 0;
   }
-  50.1%{
+  50.1% {
     stroke-dashoffset: 880;
   }
 }
 
-@keyframes rotate{
-  0%{
+@keyframes rotate {
+  0% {
     transform: rotate(0deg);
   }
- 
-  100%{
+
+  100% {
     transform: rotate(360deg);
   }
 }
